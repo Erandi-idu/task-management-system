@@ -10,6 +10,6 @@ datasource db {
 model Task {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
-  status    String   @default("pending")
+  completed Boolean  @default(false) 
   createdAt DateTime @default(now())
 }

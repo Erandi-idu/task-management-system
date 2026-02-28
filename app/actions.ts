@@ -20,3 +20,11 @@ export async function deleteTask(id: string) {
   });
   revalidatePath("/");
 }
+
+export async function toggleTask(id: string, completed: boolean) {
+  await prisma.task.update({
+    where: { id },
+    data: { completed: !completed }, 
+  });
+  revalidatePath("/");
+}
